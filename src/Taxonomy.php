@@ -19,6 +19,14 @@ class Taxonomy extends NodeUnordered implements TaxonomyInterface {
 	protected $fillable = ['is_orderable', 'name', 'slug', 'permalink'];
 
 	/**
+	 * @return int
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getName()
