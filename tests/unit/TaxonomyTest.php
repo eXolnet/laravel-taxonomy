@@ -5,7 +5,7 @@ use Exolnet\Taxonomy\Taxonomy;
 class TaxonomyTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * @var \Exolnet\Image\Image
+	 * @var \Exolnet\Taxonomy\Taxonomy
 	 */
 	protected $model;
 
