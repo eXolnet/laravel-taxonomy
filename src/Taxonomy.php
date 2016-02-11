@@ -4,6 +4,8 @@ use Exolnet\ClosureTable\Models\NodeUnordered;
 use Exolnet\Translation\Traits\Translatable;
 
 class Taxonomy extends NodeUnordered implements TaxonomyInterface {
+	use Translatable;
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -12,11 +14,23 @@ class Taxonomy extends NodeUnordered implements TaxonomyInterface {
 	protected $table = 'taxonomy';
 
 	/**
+	 * The table use for the closure relation.
+	 *
+	 * @var string
+	 */
+	protected $closure_table = 'taxonomy_closure';
+
+	/**
 	 * Specifies which attributes should be mass-assignable.
 	 *
 	 * @var array
 	 */
 	protected $fillable = ['is_orderable', 'name', 'slug', 'permalink'];
+
+	/**
+	 * @var array
+	 */
+	protected $translatedAttributes = ['name', 'slug', 'permalink'];
 
 	/**
 	 * @return int
