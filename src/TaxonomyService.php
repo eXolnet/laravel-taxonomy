@@ -27,12 +27,7 @@ class TaxonomyService
 	{
 		$permalink = trim($permalink, '/');
 
-		// TODO-AD: Move this whereHas to the Translatable trait <adeschambeault@exolnet.com>
-		return Taxonomy::whereHas('translations', function ($q) use ($permalink) {
-			$q->where('locale', '=', \App::getLocale())
-				->where('permalink', '=', $permalink);
-		})
-		->first();
+		return Taxonomy::whereTranslation('permalink', '=', $permalink)->first();
 	}
 
 	/**
