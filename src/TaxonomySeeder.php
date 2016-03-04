@@ -66,8 +66,10 @@ class TaxonomySeeder extends Seeder
 				$translation->setSlug($slug);
 			}
 
-			$permalink = ltrim(($parent ? $parent->getPermalink() . '/' : '') . $translation->getSlug(), '/');
-			$translation->setPermalink($permalink);
+			if ($translation->getPermalink() === null) {
+				$permalink = ltrim(($parent ? $parent->getPermalink() . '/' : '') . $translation->getSlug(), '/');
+				$translation->setPermalink($permalink);
+			}
 		}
 
 		// Save the taxonomy

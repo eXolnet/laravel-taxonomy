@@ -21,13 +21,14 @@ class TaxonomyService
 	 * Get a taxonomy by it's permalink.
 	 *
 	 * @param  string $permalink
+	 * @param null $locale
 	 * @return \Exolnet\Taxonomy\Taxonomy|null
 	 */
-	public function getByPermalink($permalink)
+	public function getByPermalink($permalink, $locale = null)
 	{
 		$permalink = trim($permalink, '/');
 
-		return Taxonomy::whereTranslation('permalink', '=', $permalink)->first();
+		return Taxonomy::whereTranslation('permalink', '=', $permalink, $locale)->first();
 	}
 
 	/**
