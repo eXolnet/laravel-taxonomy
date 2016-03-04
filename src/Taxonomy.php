@@ -81,6 +81,14 @@ class Taxonomy extends NodeUnordered implements TaxonomyInterface {
 	/**
 	 * @return string
 	 */
+	public function getSlugId()
+	{
+		return $this->getTranslation('en')->getSlug();
+	}
+
+	/**
+	 * @return string
+	 */
 	public function getPermalink()
 	{
 		return $this->permalink;
