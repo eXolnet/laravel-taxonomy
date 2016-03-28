@@ -67,7 +67,7 @@ class TaxonomySeeder extends Seeder
 			}
 
 			if ($translation->getPermalink() === null) {
-				$permalink = ltrim(($parent ? $parent->getPermalink() . '/' : '') . $translation->getSlug(), '/');
+				$permalink = ltrim(($parent ? $parent->getTranslation($translation->getLocale())->getPermalink() . '/' : '') . $translation->getSlug(), '/');
 				$translation->setPermalink($permalink);
 			}
 		}
